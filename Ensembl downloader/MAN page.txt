@@ -1,0 +1,28 @@
+NAME
+
+	Ensembl_Downloader.py- downloads fasta sequences in a file by using the output.csv file 
+	downloaded from Ensembl website search results and adds the name of the species after
+	each FASTA ID.
+
+SYNOPSIS
+
+	Ensembl_Downloader.py [-h] [-n x] [-o x]
+
+REQUIRED PACKAGES
+
+	os, pandas, argparse, requests
+
+DESCRIPTION 
+
+OPTIONS
+
+	-h, 	--help            	show this help message and exit
+	-n x, 	--file_name x     	name of the input csv file (required argument)
+	-o x 	--output_file_name x	name of the output fasta file (required argument)	
+
+EXAMPLES
+
+	$ python3 Ensembl_Downloader -n "output.csv" -o example.fasta
+	
+AUTHOR
+	sakimshakh.samad@postgrad.manchester.ac.uk
