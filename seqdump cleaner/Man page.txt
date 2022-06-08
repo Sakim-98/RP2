@@ -1,0 +1,42 @@
+NAME
+
+	seqdump_cleaner.py- cleans the blast result output file (seqdump.txt) according to the user's specification
+
+SYNOPSIS
+
+	seqdump_cleaner.py [-h] [-n x] [-o x] [-r x] [-u x]
+
+REQUIRED PACKAGES
+
+	Bio, textwrap, regex, argparse, os	
+
+DESCRIPTION
+
+	seqdump_cleaner.py takes the blast result seqdump file as an input and deletes sequences according to the user
+	specifications to an output file. Both the input and output files are required arguments (-n and -o respectively).
+	The seqdump file needs to be converted to fasta format, otherwise the script may not work. It can also cleave and 
+	keep only the portion of the sequences that the user requires, the regex code for which needs to be encoded after 
+	the -r argument. The -u argument lets the user choose which terms in the seq IDs would warrant the removal of the
+	sequences. By default, IDs containing 'partial' and 'LOW_QUALITY' are removed.
+
+OPTIONS
+
+	-h, 	--help            	show this help message and exit
+	-n x, 	--file_name x     	name of the input seqdump file (required argument)
+	-o x, 	--output_file_name x    name of the output file (required argument)
+	-r x, 	--regex_code x		the regex code to manipulate each of the sequences
+	-u x, 	--unwanted_sequences x	terms/words, if found in FASTA ids, that would warrant the removal of the sequence [no more than three terms]	
+
+EXAMPLES
+
+	get rid of sequences with IDs containing 'partial' or 'LOW_QUALITY' 
+
+	~$ python3 seqdump_cleaner.py -n seqdump.fasta -o col1a1_sequences.fasta -u partial,LOW_QUALITY
+
+	get rid of sequences with IDs containing 'partial' and only keep sequences from the first letter after GLGGNFAP until YRA (needs regex)
+
+	~$ python3 seqdump_cleaner.py -n seqdump.fasta -o col1a1_sequences.fasta -u partial -r "(?<=GLGGNFAP).+YRA"
+
+
+AUTHOR
+	sakimshakh.samad@postgrad.manchester.ac.uk
