@@ -1,0 +1,41 @@
+NAME
+
+	MultiFasta_digester.py takes a fasta file and digests all the sequences from different species 
+	and gives out the top most occurring peptide
+
+SYNOPSIS
+
+	MultiFasta_digester.py [-h] [-n x] [-m x] [-c x]
+
+REQUIRED PACKAGES
+
+	Bio, pyteomics, collections, argparse
+
+DESCRIPTION 
+
+	The script takes the names of two taxa to compare as user inputs in the command line (e.g., Mammalia and Reptilia)
+	and prints three outputs for each of the taxons. These are as follows: Common in most Mammalia, Present only in Mammalia,
+	and Present in Mammalia but not in Reptilia. The three outputs for Reptilia are the same containing the corresponding 
+	information about Reptilia. To be classed as conserved peptides at least 50% of the target taxon had to contain the given 
+	peptide marker. This threshold was also kept at 50% to be classed as a unique peptide. Please make sure there is no comma
+	after each taxon name (bovidae,leporidae instead of bovidae, leporidae).
+
+OPTIONS
+
+	-h, 		--help            	 show this help message and exit
+	-n x, 	--file_name x     	 name of the input fasta file (required argument)
+	-m x, 	--missed_cleavage		 number of missed cleavage allowed (By default no missed cleavage)
+	-c x, 	--compare_taxa		 The required taxa to be compared (two)	
+
+EXAMPLES
+
+	Information about the taxa Bovidae and Leporidae from the file "COL1A2 Final_filtered.fasta" allowing no missed cleavage
+
+	$ python3 "MultiFasta_digester (User input).py" -n "COL1A2 Final_filtered.fasta" -c Bovidae,Leporidae
+	
+	Information about the taxa "Sus scrofa" and "Bos taurus" from the file "COL1A1 Final_filtered.fasta" allowing one missed cleavage
+	
+	$ python3 "MultiFasta_digester (User input).py" -n "COL1A1 Final_filtered.fasta" -c "Sus scrofa","Bos taurus" -m 1
+	
+AUTHOR
+	sakimshakh.samad@postgrad.manchester.ac.uk
