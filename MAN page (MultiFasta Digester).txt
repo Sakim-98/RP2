@@ -1,7 +1,8 @@
 NAME
 
-	MultiFasta_digester.py takes a fasta file and digests all the sequences from different species 
-	and gives out the top most occurring peptide
+	MultiFasta_digester.py takes a fasta file with many sequences and two taxa to compare. It then digests all
+	the sequences from different species of each taxon and gives out the top most occurring peptides for each, 
+	peptides unique to each other and peptides exclusive to each of the taxa.
 
 SYNOPSIS
 
@@ -9,7 +10,7 @@ SYNOPSIS
 
 REQUIRED PACKAGES
 
-	Bio, pyteomics, collections, argparse
+	Bio, pyteomics, collections, argparse, regex
 
 DESCRIPTION 
 
