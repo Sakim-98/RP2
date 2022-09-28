@@ -1,3 +1,11 @@
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+modules = ['Bio','regex','pandas','json','textwrap','argparse']
+for module in modules:
+	install(module)
+	print(f'Installed {module}')
+    
 from Bio import SeqIO
 from pyteomics.parser import cleave, expasy_rules
 from Bio.SeqUtils import molecular_weight
