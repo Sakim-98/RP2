@@ -4,7 +4,7 @@ def install(package):
 modules = ['Bio','regex','pandas','json','textwrap','argparse']
 for module in modules:
 	install(module)
-	print('Installed module')
+	print(f'Installed {module}')
 
 from Bio import SeqIO
 import regex as re
