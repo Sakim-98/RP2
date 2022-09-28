@@ -1,3 +1,11 @@
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+modules = ['Bio','regex','pandas','json','textwrap','argparse']
+for module in modules:
+	install(module)
+	print('Installed module')
+
 from Bio import SeqIO
 import regex as re
 import pandas as pd
